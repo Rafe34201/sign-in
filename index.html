@@ -65,7 +65,7 @@
     <input type="number" id="age" class="form-input">
     <p id="age_alert" class="alert"></p>
   </div>
-  <button onclick="piyan()">確認送出</button>
+  <button onclick="piyan()">註冊</button>
     <script>
         function name_ge(){
             let characters = "abcdefghijklmnopqrstuvwxyz";
@@ -84,19 +84,28 @@
 
         function piyan(){
             let password = document.getElementById("password").value
-            let age = document.getElementById("age").value            
+            let age = document.getElementById("age").value       
+            
+            if( !password && !age){
+                alert("請填寫資料再註冊！")
+            }
+            
+
             if (password){
                 tex = "這個密碼已被" + name_ge() +"使用"
                 document.getElementById("pass_alert").innerText = tex
+            }else{
+                document.getElementById("pass_alert").innerText = ""
             }
             if(age){
                 if (0 > age || age > 120 ){
                     document.getElementById("age_alert").innerText = "吸血鬼不得註冊！"
-                }else{
-                    
+                }else{    
                     document.getElementById("age_alert").innerText = "這個歲數的人已經存在！"
                 }               
-            }        
+            }else{
+                document.getElementById("age_alert").innerText = ""
+            }      
         }
     </script>
 
